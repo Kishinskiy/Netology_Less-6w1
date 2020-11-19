@@ -1,5 +1,5 @@
 class Animal:
-    def __init__(self, name, kind, take, weight = 0.0, sound = ''):
+    def __init__(self):
         self.name = name
         self.kind = kind
         self.take = take
@@ -17,44 +17,95 @@ class Animal:
         return print(f'вы получили {int(self.weight * 1)} {self.take}')
 
 
+class Goose(Animal):
+    def __init__(self, name, weight):
+        self.kind = 'Гусь'
+        self.name = name
+        self.weight = weight
+        self.take = 'Яица'
+        self.sound = 'гагочит'
 
-sum_weight = 0
+
+class Cow(Animal):
+    def __init__(self, name, weight):
+        self.kind = 'Корова'
+        self.name = name
+        self.weight = weight
+        self.take = 'Молоко'
+        self.sound = 'Мычит'
+
+class Sheep(Animal):
+    def __init__(self, name, weight):
+        self.kind = 'Овца'
+        self.name = name
+        self.weight = weight
+        self.take = 'Шерсть'
+        self.sound = 'Блеет'
+
+class Chicken(Animal):
+    def __init__(self, name, weight):
+        self.kind = 'Курица'
+        self.name = name
+        self.weight = weight
+        self.take = 'Яица'
+        self.sound = 'Кудахчет'
+
+class Goat(Animal):
+    def __init__(self, name, weight):
+        self.kind = 'Коза'
+        self.name = name
+        self.weight = weight
+        self.take = 'Молоко'
+        self.sound = 'Блеет'
+
+class Duck(Animal):
+    def __init__(self, name, weight):
+        self.kind = 'Утка'
+        self.name = name
+        self.weight = weight
+        self.take = 'Яица'
+        self.sound = 'Крякает'
+
+
+
 
 # Гуси
-goose1 = Animal('Серый', 'гусь', 'яица', 2.3, 'гагочит')
-goose2 = Animal("Белый", 'гусь', 'яица', 2.6, 'гагочит')
+seriy = Goose('Серый', 2.3)
+beliy = Goose('Белый', 2.6)
 
 # Корова
-cow = Animal('Манька', 'корова', 'молоко', 600, 'мычит')
+manka = Cow('Манька', 600)
 
 # Овцы
-sheep1 = Animal('Барашек', 'овца', 'шерсть', 130, 'блеет')
-sheep2 = Animal('Кудрявый', 'овца', 'шерсть', 120, 'блеет')
+barashek = Sheep('Барашек', 130)
+kudriyaviy = Sheep('Кудрявый', 120)
 
-# Куры
-chicken1 = Animal('Ко-Ко', 'курица', 'яица', 1.3, 'кудахчет')
-chicken2 = Animal('Кукареку', 'курица', 'яица', 1.6,'кудахчет')
+# # Куры
+koko=Chicken('Ко-Ко', 1.3)
+kukareku = Chicken('Кукареку', 1.6)
 
-# Козы
-goat1 = Animal('Рога', 'коза', 'молоко', 140, 'блеет')
-goat2 = Animal('Копыта', 'коза', 'молоко', 120, 'блеет')
+# # Козы
+roga = Goat('Рога', 140)
+kopiyta = Goat('Копыта', 120)
 
-# Утка
-duck = Animal('Кряква', 'утка', 'яица', 1.6, 'крякает')
+# # Утка
+kriyakva = Duck('Кряква', 1.6)
+
 
 if __name__ == '__main__':
+    sum_weight = 0
     max_weight = [0, 0]
     animals = [
-        goose1,
-        goose2,
-        cow,
-        sheep1,
-        sheep2,
-        chicken1,
-        chicken2,
-        goat1,
-        goat2,
-        duck]
+        seriy,
+        beliy,
+        manka,
+        barashek,
+        kudriyaviy,
+        koko,
+        kukareku,
+        roga,
+        kopiyta,
+        kriyakva]
 
     for anim in animals:
         anim.eat(3)
