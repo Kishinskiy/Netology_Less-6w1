@@ -1,13 +1,13 @@
 class Animal:
     def __init__(self):
-        self.name = name
-        self.kind = kind
-        self.take = take
-        self.weight = weight
-        self.sound = sound
+        self.name = ''
+        self.kind = ''
+        self.take = ''
+        self.weight = 0.0
+        self.sound = ''
 
     def voice(self):
-        return print(f'{self.kind} {self.sound}')
+        return print(f'{self.kind} {self.name} {self.sound}')
 
     def eat(self, food):
         self.weight += (0.1 * food)
@@ -15,6 +15,12 @@ class Animal:
 
     def harvest(self):
         return print(f'вы получили {int(self.weight * 1)} {self.take}')
+
+    def fly(self):
+        pass
+
+    def swim(self):
+        pass
 
 
 class Goose(Animal):
@@ -25,6 +31,12 @@ class Goose(Animal):
         self.take = 'Яица'
         self.sound = 'гагочит'
 
+    def fly(self):
+        return print(f'{self.kind} {self.name} летает')
+
+    def swim(self):
+        return print(f'{self.kind} {self.name} плывет')
+
 
 class Cow(Animal):
     def __init__(self, name, weight):
@@ -34,6 +46,7 @@ class Cow(Animal):
         self.take = 'Молоко'
         self.sound = 'Мычит'
 
+
 class Sheep(Animal):
     def __init__(self, name, weight):
         self.kind = 'Овца'
@@ -41,6 +54,7 @@ class Sheep(Animal):
         self.weight = weight
         self.take = 'Шерсть'
         self.sound = 'Блеет'
+
 
 class Chicken(Animal):
     def __init__(self, name, weight):
@@ -50,6 +64,7 @@ class Chicken(Animal):
         self.take = 'Яица'
         self.sound = 'Кудахчет'
 
+
 class Goat(Animal):
     def __init__(self, name, weight):
         self.kind = 'Коза'
@@ -57,6 +72,7 @@ class Goat(Animal):
         self.weight = weight
         self.take = 'Молоко'
         self.sound = 'Блеет'
+
 
 class Duck(Animal):
     def __init__(self, name, weight):
@@ -66,7 +82,11 @@ class Duck(Animal):
         self.take = 'Яица'
         self.sound = 'Крякает'
 
+    def fly(self):
+        return print(f'{self.kind} {self.name} летает')
 
+    def swim(self):
+        return print(f'{self.kind} {self.name} плывет')
 
 
 # Гуси
@@ -81,7 +101,7 @@ barashek = Sheep('Барашек', 130)
 kudriyaviy = Sheep('Кудрявый', 120)
 
 # # Куры
-koko=Chicken('Ко-Ко', 1.3)
+koko = Chicken('Ко-Ко', 1.3)
 kukareku = Chicken('Кукареку', 1.6)
 
 # # Козы
@@ -110,6 +130,9 @@ if __name__ == '__main__':
     for anim in animals:
         anim.eat(3)
         anim.harvest()
+        anim.voice()
+        anim.fly()
+        anim.swim()
         sum_weight += anim.weight
         if max_weight[1] < round(anim.weight, 2):
             max_weight = [anim.kind, round(anim.weight, 2)]
